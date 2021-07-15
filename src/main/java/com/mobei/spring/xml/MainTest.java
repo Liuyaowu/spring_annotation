@@ -1,4 +1,4 @@
-package com.mobei.spring.test;
+package com.mobei.spring.xml;
 
 import com.mobei.spring.bean.Person;
 import org.springframework.context.ApplicationContext;
