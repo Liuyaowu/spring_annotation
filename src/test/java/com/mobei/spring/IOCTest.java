@@ -34,4 +34,18 @@ public class IOCTest {
         }
     }
 
+    @Test
+    public void testFactoryBean() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+
+        // 工厂Bean获取的是ColorFactoryBean的方法getObject返回的对象
+        Object color = applicationContext.getBean("colorFactoryBean");
+        // 输出的是: class com.mobei.spring.bean.Color
+        System.out.println(color.getClass());
+
+        // 如果要获取ColorFactoryBean自身的对象需要在colorFactoryBean前面加&符号
+        Object colorFactoryBean = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(colorFactoryBean.getClass());
+    }
+
 }

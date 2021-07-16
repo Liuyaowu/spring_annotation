@@ -1,7 +1,9 @@
 package com.mobei.spring.annotation;
 
+import com.mobei.spring.factorybean.ColorFactoryBean;
 import com.mobei.spring.importannotation.MyImportBeanDefinitionRegistrar;
 import com.mobei.spring.importannotation.MyImportSelector;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -97,12 +99,11 @@ public class MainConfig {
      * 		3）、ImportBeanDefinitionRegistrar: 手动注册bean到容器中
      * 4）、使用Spring提供的 FactoryBean（工厂Bean）;
      * 		1）、默认获取到的是工厂bean调用getObject创建的对象
-     * 		2）、要获取工厂Bean本身，我们需要给id前面加一个&
-     * 			&colorFactoryBean
+     * 		2）、要获取工厂Bean本身，我们需要给id前面加一个&比如: &colorFactoryBean
      */
-//    @Bean
-//    public ColorFactoryBean colorFactoryBean(){
-//        return new ColorFactoryBean();
-//    }
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
 
 }

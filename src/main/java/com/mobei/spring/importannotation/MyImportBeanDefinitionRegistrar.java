@@ -21,6 +21,7 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
         boolean existBlue = registry.containsBeanDefinition("com.mobei.spring.bean.Red");
 
         if (existRed && existBlue) {
+            // 指定Bean的定义信息
             RootBeanDefinition beanDefinition = new RootBeanDefinition(RainBow.class);
 
             registry.registerBeanDefinition("rainBow",beanDefinition);
