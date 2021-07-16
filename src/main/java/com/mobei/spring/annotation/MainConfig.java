@@ -1,8 +1,9 @@
 package com.mobei.spring.annotation;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import com.mobei.spring.bean.Person;
+import com.mobei.spring.condition.LinuxCondition;
+import com.mobei.spring.condition.WindowsCondition;
+import org.springframework.context.annotation.*;
 
 /**
  * 配置类=以前的配置文件
@@ -62,5 +63,26 @@ public class MainConfig {
 //    public Person person() {
 //        return new Person("李四", 20);
 //    }
+
+
+    /**
+     * @Conditional: 按照一定的条件进行判断,满足条件给容器中注册bean
+     *      加载方法上对方法生效,加在类上那么这个类中所有的bean满足条件才会被注入
+     *
+     * 如果是windows系统给容器中注入bill, 如果是linux系统给容器中注入linus
+     *
+     * @return
+     */
+    @Conditional(value = {WindowsCondition.class})
+    @Bean("bill")
+    public Person person01() {
+        return new Person("Bill Gates", 62);
+    }
+
+    @Conditional(value = {LinuxCondition.class})
+    @Bean("linus")
+    public Person person02() {
+        return new Person("Linus", 55);
+    }
 
 }
