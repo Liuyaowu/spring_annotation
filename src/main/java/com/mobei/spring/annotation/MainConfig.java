@@ -1,7 +1,10 @@
 package com.mobei.spring.annotation;
 
-import com.mobei.spring.selector.MyImportSelector;
-import org.springframework.context.annotation.*;
+import com.mobei.spring.importannotation.MyImportBeanDefinitionRegistrar;
+import com.mobei.spring.importannotation.MyImportSelector;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * 配置类=以前的配置文件
@@ -30,19 +33,19 @@ import org.springframework.context.annotation.*;
  *
  *
  */
-@Import({MyImportSelector.class})
+@Import({MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 @ComponentScan(
         value = "com.mobei.spring",
 //        excludeFilters = {
 //                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class, Service.class})
 //        },
 //        includeFilters = {
-////                @ComponentScan.Filter(
-////                        type = FilterType.ANNOTATION, classes = {Repository.class, Component.class}
-////                ),
-////                @ComponentScan.Filter(
-////                        type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class}
-////                ),
+//                @ComponentScan.Filter(
+//                        type = FilterType.ANNOTATION, classes = {Repository.class, Component.class}
+//                ),
+//                @ComponentScan.Filter(
+//                        type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class}
+//                ),
 //                @ComponentScan.Filter(
 //                        type = FilterType.CUSTOM, classes = {MyTypeFilter.class}
 //                )

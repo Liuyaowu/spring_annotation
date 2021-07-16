@@ -1,13 +1,11 @@
-package com.mobei.spring.selector;
+package com.mobei.spring.importannotation;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * 自定义逻辑返回需要导入的组件
  */
-@EnableAsync
 public class MyImportSelector implements ImportSelector {
 
     /**
@@ -18,7 +16,9 @@ public class MyImportSelector implements ImportSelector {
      */
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        return new String[]{"com.mobei.spring.bean.Blue", "com.mobei.spring.bean.Red"};
+        // 在容器中的id是全路径类名com.mobei.spring.bean.Blue、com.mobei.spring.bean.Red
+        // 如果类上加了@Component注解则id是类名首字母小写的类名
+        return new String[]{"com.mobei.spring.bean.Red", "com.mobei.spring.bean.Blue"};
     }
 
 }
