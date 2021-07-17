@@ -1,6 +1,7 @@
 package com.mobei.spring;
 
 import com.mobei.spring.annotation.MainConfig;
+import com.mobei.spring.annotation.MainConfigOfLifeCycle;
 import com.mobei.spring.bean.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -48,4 +49,13 @@ public class IOCTest {
         System.out.println(colorFactoryBean.getClass());
     }
 
+    @Test
+    public void testLifeCycle() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfLifeCycle.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String item : beanDefinitionNames) {
+            System.out.println(item);
+        }
+        applicationContext.close();
+    }
 }
