@@ -36,7 +36,12 @@ import org.springframework.context.annotation.Primary;
  * 		1）、[标注在方法位置]: @Bean+方法参数,参数从容器中获取;默认不写@Autowired效果是一样的,都能自动装配
  * 		2）、[标在构造器上]: 如果组件只有一个有参构造器,这个有参构造器的@Autowired可以省略,参数位置的组件还是可以自动从容器中获取
  * 		3）、放在参数位置:
-
+ *
+ * 4）、自定义组件想要使用Spring容器底层的一些组件比如:ApplicationContext、BeanFactory
+ * 		只需要让自定义组件实现xxxAware比如ApplicationContextAware、BeanFactoryAware: 在创建对象的时候,会调用接口规定的方法注入相关组件
+ * 		把Spring底层一些组件注入到自定义的Bean中:
+ * 		xxxAware: 使用xxxProcessor,比如ApplicationContextAware --> ApplicationContextAwareProcessor
+ *
  */
 @Configuration
 @ComponentScan({"com.mobei.spring.bean"})
