@@ -56,6 +56,8 @@ public class IOCTest {
         for (String item : beanDefinitionNames) {
             System.out.println(item);
         }
+        Object car = applicationContext.getBean("car");
+        System.out.println(car);
         applicationContext.close();
     }
 }

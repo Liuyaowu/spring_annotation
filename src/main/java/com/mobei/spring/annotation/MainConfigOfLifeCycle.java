@@ -12,6 +12,12 @@ import org.springframework.context.annotation.Configuration;
  * 3、使用JSR250:
  *      @PostConstruct:
  *      @PreDestroy:
+ * 4、BeanPostProcessor: bean后置处理器,在bean初始化前后做一些处理
+ *      - postProcessBeforeInitialization: 初始化之前工作
+ *      - postProcessAfterInitialization: 初始化之后工作
+ *
+ *
+ *
  *
  */
 @ComponentScan("com.mobei.spring.bean")

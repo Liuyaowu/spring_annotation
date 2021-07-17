@@ -1,7 +1,13 @@
 package com.mobei.spring.bean;
 
-//@Component
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
 public class Car {
+
+	private String name;
 
 	/**
 	 * 单实例:容器启动的时候创建对象
