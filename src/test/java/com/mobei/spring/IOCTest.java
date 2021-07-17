@@ -2,10 +2,12 @@ package com.mobei.spring;
 
 import com.mobei.spring.annotation.MainConfig;
 import com.mobei.spring.annotation.MainConfigOfLifeCycle;
+import com.mobei.spring.annotation.PropertyValueConfig;
 import com.mobei.spring.bean.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 public class IOCTest {
 
@@ -60,4 +62,18 @@ public class IOCTest {
         System.out.println(car);
         applicationContext.close();
     }
+
+    @Test
+    public void testPropertySource() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(PropertyValueConfig.class);
+        Object car = applicationContext.getBean("person");
+        System.out.println(car);
+
+        // 被Spring容器读取到的配置文件中的配置信息可以通过配置环境类获取到
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        String property = environment.getProperty("prop.name");
+        System.out.println(property);
+
+    }
+
 }
