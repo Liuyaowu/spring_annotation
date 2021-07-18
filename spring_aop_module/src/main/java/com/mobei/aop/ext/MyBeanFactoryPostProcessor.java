@@ -11,6 +11,6 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         int beanPostProcessorCount = beanFactory.getBeanPostProcessorCount();
         String[] beanDefinitionNames = beanFactory.getBeanDefinitionNames();
-        System.out.println("BeanFactory 后置处理器方法执行了");
+        System.out.println("BeanFactory 后置处理器方法执行了,bean的数量 : " + beanFactory.getBeanDefinitionCount());
     }
 }
