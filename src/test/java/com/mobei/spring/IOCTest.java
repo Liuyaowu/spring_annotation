@@ -2,6 +2,7 @@ package com.mobei.spring;
 
 import com.mobei.spring.annotation.MainConfig;
 import com.mobei.spring.annotation.MainConfigOfLifeCycle;
+import com.mobei.spring.annotation.ProfileConfig;
 import com.mobei.spring.annotation.PropertyValueConfig;
 import com.mobei.spring.bean.Person;
 import org.junit.Test;
@@ -74,6 +75,14 @@ public class IOCTest {
         String property = environment.getProperty("prop.name");
         System.out.println(property);
 
+    }
+
+    @Test
+    public void testProfile() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        applicationContext.getEnvironment().setActiveProfiles("test", "dev");
+        applicationContext.register(ProfileConfig.class);
+        applicationContext.refresh();
     }
 
 }
