@@ -45,9 +45,11 @@ public class LogAspects {
      *
      * value: 指定切点表达式
      * returning: 执行目标方法返回值参数名
+     *
+     * 注意: JoinPoint如果要写一定只能在第一个参数
      */
     @AfterReturning(value = "pointCut()", returning = "returnResult")
-    public void logReturn(Object returnResult) {
+    public void logReturn(JoinPoint joinPoint, Object returnResult) {
         System.out.println("logReturn--- 返回通知: 返回值{" + returnResult + "}");
     }
 
@@ -56,9 +58,11 @@ public class LogAspects {
      *
      * value: 切点表达式
      * exception: 接收异常的方法名
+     *
+     * 注意: JoinPoint如果要写一定只能在第一个参数
      */
     @AfterThrowing(value = "pointCut()", throwing = "exception")
-    public void logException(Exception exception) {
+    public void logException(JoinPoint joinPoint, Exception exception) {
         System.out.println("logException--- 异常通知: {" + exception + "}");
     }
 
