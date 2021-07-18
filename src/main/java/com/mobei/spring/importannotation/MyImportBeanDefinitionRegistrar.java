@@ -24,6 +24,7 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
             // 指定Bean的定义信息
             RootBeanDefinition beanDefinition = new RootBeanDefinition(RainBow.class);
 
+            // 往Spring注入bean
             registry.registerBeanDefinition("rainBow",beanDefinition);
         }
 
