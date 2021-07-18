@@ -20,6 +20,23 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * 6、必须告诉Spring哪个类是切面类(给切面类上加一个注解：@Aspect)
  * 7、给配置类中加 @EnableAspectJAutoProxy[开启基于注解的aop模式]
  *
+ * @EnableAspectJAutoProxy注解:
+ *  - 元注解@Import(AspectJAutoProxyRegistrar.class): 给容器中导入AspectJAutoProxyRegistrar
+ *      - AspectJAutoProxyRegistrar自定义给容器中注册bean:
+ *          id为internalAutoProxyCreator,类型为AnnotationAwareAspectJAutoProxyCreator
+ *
+ * AnnotationAwareAspectJAutoProxyCreator的作用:
+ * 		AnnotationAwareAspectJAutoProxyCreator继承结构:
+ * 			->AspectJAwareAdvisorAutoProxyCreator
+ * 				->AbstractAdvisorAutoProxyCreator
+ * 					->AbstractAutoProxyCreator: implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware
+ * 						SmartInstantiationAwareBeanPostProcessor: 后置处理器(在bean初始化完成前后做事情)
+ * 						BeanFactoryAware: void setBeanFactory(BeanFactory beanFactory): 自动装配BeanFactory
+ *
+ * AbstractAutoProxyCreator: setBeanFactory() + 后置处理器的逻辑
+ *  子类AbstractAdvisorAutoProxyCreator重写setBeanFactory(): 会调用initBeanFactory()方法
+ *      AnnotationAwareAspectJAutoProxyCreator: 重写了initBeanFactory()方法,并且方法第一行调用了父类的这个方法: 父类方法就干了一件事--new BeanFactoryAdvisorRetrievalHelperAdapter(beanFactory)
+ *
  */
 @EnableAspectJAutoProxy
 @Configuration
