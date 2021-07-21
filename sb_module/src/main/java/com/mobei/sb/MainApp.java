@@ -11,6 +11,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 
+import javax.servlet.ServletContextListener;
+
 /**
  * 自动装配原理:
  *
