@@ -1,10 +1,9 @@
 package com.mobei.sb.originannotation;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/css/*", "/images/*"})
+//@WebFilter(urlPatterns = {"/css/*", "/images/*"})
 public class MyFilter implements Filter {
 
     @Override
