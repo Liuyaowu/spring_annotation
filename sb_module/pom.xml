@@ -98,4 +98,34 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <!--<properties>
+                <profiles.active>dev</profiles.active>
+                <nacos.addr>10.0.100.93:8848,10.0.100.97:8848,10.0.100.97:8849</nacos.addr>
+                <nacos.namespace>2cbf80b2-41a5-48ff-b164-6a22be15dd4b</nacos.namespace>
+            </properties>-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <!--<properties>
+                <profiles.active>test</profiles.active>
+                <nacos.addr>10.0.100.93:8848,10.0.100.97:8848,10.0.100.97:8849</nacos.addr>
+                <nacos.namespace>ea47906a-34d3-4cc3-85f3-e7334008c11c</nacos.namespace>
+            </properties>-->
+        </profile>
+        <profile>
+            <id>prod</id>
+            <!--<properties>
+                <profiles.active>prod</profiles.active>
+                <nacos.addr>172.16.1.20:18848,172.16.2.138:18848,192.168.4.179:18848</nacos.addr>
+                <nacos.namespace>57399430-3336-4ebd-8686-acfcc2b9acbf</nacos.namespace>
+            </properties>-->
+        </profile>
+    </profiles>
+
 </project>
