@@ -21,6 +21,7 @@ public class HelloController {
     @Value("${MAVEN_HOME}")
     private String mavenHome;
 
+
     /**
      * 获取操作系统名称
      */
