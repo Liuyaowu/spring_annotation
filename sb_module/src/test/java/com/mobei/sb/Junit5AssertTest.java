@@ -5,9 +5,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 @SpringBootTest
 public class Junit5AssertTest {
+
+    @DisplayName("测试前置条件")
+    @Test
+    void testAssumptions() {
+        assumeTrue(false, "结果不是true");
+    }
 
     /**
      * 断言: 前面断言失败,后面的代码都不会执行
