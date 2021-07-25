@@ -1,0 +1,8 @@
+org.springframework.context.ApplicationContextInitializer=\
+com.mobei.sb.listener.MyAppContextInitializer
+
+org.springframework.context.ApplicationListener=\
+com.mobei.sb.listener.MyAppListener
+
+org.springframework.boot.SpringApplicationRunListener=\
+com.mobei.sb.listener.MySpringAppRunListener
