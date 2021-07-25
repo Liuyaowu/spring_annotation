@@ -72,6 +72,13 @@
             <version>2.5.2</version>
         </dependency>
 
+        <!-- spring boot作为应用客户端被监控服务监测 -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.4.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
