@@ -15,6 +15,18 @@ public class HelloController {
     @Value("${environment:default}")
     private String environment;
 
+    /**
+     * 获取操作系统信息
+     */
+    @Value("${MAVEN_HOME}")
+    private String mavenHome;
+
+    /**
+     * 获取操作系统名称
+     */
+    @Value("${os.name}")
+    private String osName;
+
     @Autowired
     Person person;
 

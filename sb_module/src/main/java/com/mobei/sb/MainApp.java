@@ -3,6 +3,9 @@ package com.mobei.sb;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+import java.util.Map;
 
 /**
  * 自动装配原理:
@@ -44,6 +47,13 @@ public class MainApp {
 
 //        Car bean = applicationContext.getBean(Car.class);
 //        System.out.println(bean);
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+
+        Map<String, Object> systemEnvironment = environment.getSystemEnvironment();
+        Map<String, Object> systemProperties = environment.getSystemProperties();
+
+        System.out.println(systemEnvironment);
+        System.out.println(systemProperties);
     }
 
 }
