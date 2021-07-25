@@ -15,6 +15,7 @@
     <modules>
         <module>spring_aop_module</module>
         <module>sb_module</module>
+        <module>springboot-admin-server</module>
     </modules>
 
     <properties>
