@@ -19,6 +19,7 @@ public class TestingAStackDemo {
 
     Stack<Object> stack;
 
+// -------------------------参数化测试开始
     @ParameterizedTest
     @DisplayName("参数化测试")
     @ValueSource(ints = {1, 2, 3, 4, 5})
@@ -33,9 +34,16 @@ public class TestingAStackDemo {
         System.out.println(i);
     }
 
+    /**
+     * @MethodSource注解调用的方法必须返回Stream
+     *
+     * @return
+     */
     static Stream<String> stringProvider() {
         return Stream.of("apple", "banana", "atguigu");
     }
+
+// -------------------------参数化测试戒指
 
     @Test
     @DisplayName("new Stack()")
