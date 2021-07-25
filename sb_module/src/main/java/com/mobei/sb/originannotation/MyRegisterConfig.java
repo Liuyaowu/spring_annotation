@@ -4,14 +4,13 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
 
 /**
  * 保证返回的对象是统一个
  */
-@Configuration(proxyBeanMethods = true)
+//@Configuration(proxyBeanMethods = true)
 public class MyRegisterConfig {
 
     @Bean

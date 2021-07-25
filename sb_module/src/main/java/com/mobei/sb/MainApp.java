@@ -1,17 +1,8 @@
 package com.mobei.sb;
 
-import com.mobei.sb.bean.Car;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigurationExcludeFilter;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.TypeExcludeFilter;
-import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
-
-import javax.servlet.ServletContextListener;
 
 /**
  * 自动装配原理:
@@ -40,21 +31,19 @@ import javax.servlet.ServletContextListener;
  *  只有在配置了相关场景启动器的情况下才会加载
  *
  */
-@ServletComponentScan(value = "com.mobei.sb.originannotation")
-@SpringBootConfiguration
-@EnableAutoConfiguration
-@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
-        @ComponentScan.Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+//@ServletComponentScan(value = "com.mobei.sb.originannotation")
+//@SpringBootConfiguration
+//@EnableAutoConfiguration
+//@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+//        @ComponentScan.Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+@SpringBootApplication
 public class MainApp {
-
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(MainApp.class, args);
 
-        Car bean = applicationContext.getBean(Car.class);
-        System.out.println(bean);
-
-
+//        Car bean = applicationContext.getBean(Car.class);
+//        System.out.println(bean);
     }
 
 }
